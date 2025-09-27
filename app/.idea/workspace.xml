@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7cc09b12-6297-4b7e-bb75-f5d4518c1616" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TestOpponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/advanced.hpsql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug_tokenizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_relational_binding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample.hpsql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/cli/HoopsQLRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/cli/HoopsQLRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/cli/HoopsSQLRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/ASTVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/ASTVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/ExecutionPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/ExecutionPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/HoopsQLDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/LexerDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/MyQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/MyQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/ParserDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/Planner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/PlannerDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/RelationalBindingDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoopsql/compiler/demo_relational_binding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.hpsql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="336vAVD6mU8MGXxKo1uQyC16p4v" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/david-belanger/dev/HoopsQL/app/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7cc09b12-6297-4b7e-bb75-f5d4518c1616" name="Changes" comment="" />
+      <created>1758650193045</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758650193045</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,2 @@
+Player p = "LeBron James"
+get avg(games) where season = "2023-24"
