@@ -3,8 +3,10 @@
 This document provides a comprehensive reference for all available fields, data types, and aliases in the HoopsQL database schema. The database contains over 1.6 million player game records with comprehensive NBA statistics.
 
 **Recent Updates**: 
-- ✅ ORDER BY functionality fully working! Parser handles both `order by most/least field` and shorthand `most/least field` syntaxes.
-- ✅ Games count display: Results now show total matching games at the top (e.g., "(164 games)").
+- ORDER BY functionality fully working! Parser handles both `order by most/least field` and shorthand `most/least field` syntaxes.
+- Games count display: Results now show total matching games at the top (e.g., "(164 games)").
+
+**Database Setup**: The SQLite database is hosted separately due to file size limits. [Download hoopsql.db](https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT) and place it at `SQLite/hoopsql.db`.
 
 ---
 
@@ -146,10 +148,10 @@ All numerical fields can be used for sorting:
 - Date fields: `game_date`
 
 ### Current Implementation Status
-- ✅ **Syntax Parsing**: ORDER BY clauses are correctly parsed (both full and shorthand syntax)
-- ✅ **SQL Generation**: ORDER BY SQL is generated in execution plans
-- ✅ **Actual Sorting**: Results now properly sorted (parser fix applied)
-- ✅ **Complete Functionality**: All ORDER BY operations working correctly
+- **Syntax Parsing**: ORDER BY clauses are correctly parsed (both full and shorthand syntax)
+- **SQL Generation**: ORDER BY SQL is generated in execution plans
+- **Actual Sorting**: Results now properly sorted (parser fix applied)
+- **Complete Functionality**: All ORDER BY operations working correctly
 
 ---
 

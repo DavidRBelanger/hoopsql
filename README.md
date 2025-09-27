@@ -1,29 +1,43 @@
-# HoopsQL 
+# HoopsQL
 
 A powerful SQL-like query language designed specifically for NBA statistics analysis. Query individual games, calculate season averages, and discover insights from over 1.6 million player game records with intuitive, basketball-focused syntax.
 
-## 🚀 Quick Start
+## Database Setup
 
+The SQLite database (76MB, 1.6M records) is hosted separately due to GitHub's file size limits.
+
+**Download the database:** [hoopsql.db](https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT)
+
+### Quick Setup:
+1. Clone this repository
+2. Download the database file (link above) 
+3. Place it at: `SQLite/hoopsql.db`
+4. Run: `./hoopsql`
+
+### Command Line Setup:
 ```bash
 # Clone and setup
-git clone <your-repo-url>
-cd HoopsQL
-chmod +x hoopsql
+git clone https://github.com/DavidRBelanger/hoopsql.git
+cd hoopsql
 
-# Run your first query
+# Download database
+wget -O SQLite/hoopsql.db "https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT"
+
+# Make executable and run
+chmod +x hoopsql
 ./hoopsql 'Player p = "Stephen Curry" get games where p.points >= 30 limit 5'
 ```
 
-##  Features
+## Features
 
-- ** Intuitive Syntax**: Natural basketball terminology (`p.points >= 30`, `p.made_threes >= 8`)
-- ** Multiple Query Types**: Individual games, season averages, statistical analysis
-- ** Advanced Sorting**: `order by most points`, `order by least turnovers`
-- ** Multi-Player Queries**: Automatic same-game detection for teammate analysis
-- ** High Performance**: 1.6M+ records with optimized SQLite backend
-- ** Rich Statistics**: Points, rebounds, assists, shooting percentages, and 20+ more fields
+- **Intuitive Syntax**: Natural basketball terminology (`p.points >= 30`, `p.made_threes >= 8`)
+- **Multiple Query Types**: Individual games, season averages, statistical analysis
+- **Advanced Sorting**: `order by most points`, `order by least turnovers`
+- **Multi-Player Queries**: Automatic same-game detection for teammate analysis
+- **High Performance**: 1.6M+ records with optimized SQLite backend
+- **Rich Statistics**: Points, rebounds, assists, shooting percentages, and 20+ more fields
 
-##  Example Queries
+## Example Queries
 
 ### Individual Game Analysis
 ```sql
@@ -51,14 +65,14 @@ Player q = "Kobe Bryant"
 get games where p.played and q.played and p.points >= 25 and q.points >= 25
 ```
 
-##  Documentation
+## Documentation
 
 - **[Complete Schema Dictionary](docs/schema-dictionary.md)** - All available fields, aliases, and examples
 - **[Setup Guide](docs/spec-doc.md)** - Installation and usage instructions 
 - **[Distribution Guide](docs/DISTRIBUTION.md)** - Maven-free setup options
 - **[Data Pipeline](docs/data-pipeline.md)** - Database structure and data sources
 
-##  Installation
+## Installation
 
 ### Prerequisites
 - Java 8+ installed
@@ -86,7 +100,7 @@ java -jar hoopsql-1.0.jar
 java -jar hoopsql-1.0.jar
 ```
 
-##  Available Statistics
+## Available Statistics
 
 | Category | Fields | Examples |
 |----------|--------|----------|
@@ -97,7 +111,7 @@ java -jar hoopsql-1.0.jar
 | **Efficiency** | `field_goal_percentage`, `three_point_percentage`, `plus_minus` | `p.fg_percent >= 0.500` |
 | **Context** | `team`, `opponent`, `game_date`, `win`, `minutes` | `p.team = "Lakers"` |
 
-## 🎮 Interactive Mode
+## Interactive Mode
 
 ```bash
 ./hoopsql
@@ -106,7 +120,7 @@ java -jar hoopsql-1.0.jar
 > exit
 ```
 
-##  Query Language Features
+## Query Language Features
 
 ### Syntax Highlights
 - **Player Variables**: `Player p = "Name"` - Clean, readable player assignment
@@ -121,14 +135,14 @@ java -jar hoopsql-1.0.jar
 - **Comprehensive Field Aliases**: `reb`→`rebounds`, `ast`→`assists`, `3pm`→`three_pointers_made`
 - **Statistical Aggregations**: Automatic AVG/MIN/MAX calculations with qualified game counts
 
-## 🗄️Database
+## Database
 
 - **Size**: 76MB SQLite database
 - **Records**: 1,627,438 individual player game statistics
 - **Coverage**: Comprehensive NBA historical data
 - **Performance**: Optimized indexes for player names and dates
 
-##  Contributing
+## Contributing
 
 Contributions welcome! Areas for expansion:
 - Additional statistical scopes (seasons, career totals)
@@ -136,11 +150,11 @@ Contributions welcome! Areas for expansion:
 - Data visualization integration
 - API endpoints for web integration
 
-##  License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-##  Example Output
+## Example Output
 
 ```
 Results:
@@ -158,4 +172,4 @@ Results:
 
 ---
 
-**HoopsQL** - Where basketball meets data science. Query like you think about the game! 🏆
+**HoopsQL** - Where basketball meets data science. Query like you think about the game!

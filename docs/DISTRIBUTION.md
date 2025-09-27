@@ -7,24 +7,28 @@
 - Test with: `java -version`
 
 ### 2. Download Files Needed
-- `hoopsql-0.1.0-SNAPSHOT.jar` (14MB) - The main application
+- `hoopsql-1.0.jar` (14MB) - The main application (included in repository)
 - `SQLite/hoopsql.db` (76MB) - The NBA statistics database
+
+**Download database:** [hoopsql.db](https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT)
 
 ### 3. Platform Setup
 
 #### Windows (PowerShell)
 ```powershell
-# Create directory and copy files
-mkdir C:\HoopsQL
-# Copy hoopsql-0.1.0-SNAPSHOT.jar and SQLite\hoopsql.db to C:\HoopsQL\
+# Clone repository
+git clone https://github.com/DavidRBelanger/hoopsql.git
+cd hoopsql
+
+# Download database
+Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT" -OutFile "SQLite\hoopsql.db"
 
 # Test it works
-cd C:\HoopsQL
-java -jar hoopsql-0.1.0-SNAPSHOT.jar "Player p = `"Kobe Bryant`" get games where p.points >= 40"
+java -jar hoopsql-1.0.jar "Player p = `"Kobe Bryant`" get games where p.points >= 40"
 
 # Add permanent function to PowerShell profile (optional)
 if (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -Type File -Force }
-Add-Content $PROFILE 'function hoopsql { java -jar "C:\HoopsQL\hoopsql-0.1.0-SNAPSHOT.jar" $args }'
+Add-Content $PROFILE 'function hoopsql { java -jar "$PWD\hoopsql-1.0.jar" $args }'
 . $PROFILE
 
 # Now you can use: hoopsql "query here"
@@ -32,25 +36,21 @@ Add-Content $PROFILE 'function hoopsql { java -jar "C:\HoopsQL\hoopsql-0.1.0-SNA
 
 #### Linux/macOS
 ```bash
-# Create directory and copy files  
-mkdir ~/HoopsQL
-# Copy hoopsql-0.1.0-SNAPSHOT.jar and SQLite/hoopsql.db to ~/HoopsQL/
+# Clone repository
+git clone https://github.com/DavidRBelanger/hoopsql.git
+cd hoopsql
+
+# Download database
+wget -O SQLite/hoopsql.db "https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT"
 
 # Test it works
-cd ~/HoopsQL
-java -jar hoopsql-0.1.0-SNAPSHOT.jar "Player p = \"Kobe Bryant\" get games where p.points >= 40"
+chmod +x hoopsql
+./hoopsql "Player p = \"Kobe Bryant\" get games where p.points >= 40"
 
-# Create launcher script (optional)
-cat > ~/HoopsQL/hoopsql << 'EOF'
-#!/bin/bash
-java -jar "$HOME/HoopsQL/hoopsql-0.1.0-SNAPSHOT.jar" "$@"
-EOF
-chmod +x ~/HoopsQL/hoopsql
-
-# Add to PATH (choose one method)
-echo 'export PATH="$HOME/HoopsQL:$PATH"' >> ~/.bashrc && source ~/.bashrc
+# Add to PATH (optional)
+echo 'export PATH="$(pwd):$PATH"' >> ~/.bashrc && source ~/.bashrc
 # OR
-sudo ln -s ~/HoopsQL/hoopsql /usr/local/bin/hoopsql
+sudo ln -s $(pwd)/hoopsql /usr/local/bin/hoopsql
 
 # Now you can use: hoopsql "query here"
 ```
@@ -72,20 +72,28 @@ hoopsql query.hpsql
 
 ### 5. File Structure
 ```
-HoopsQL/
-├── hoopsql-0.1.0-SNAPSHOT.jar    # Main application (14MB)
+hoopsql/
+├── hoopsql-1.0.jar               # Main application (14MB)
 ├── SQLite/
-│   └── hoopsql.db                # NBA database (76MB)
-└── hoopsql                       # Launcher script (Linux/Mac only)
+│   └── hoopsql.db                # NBA database (76MB) - Download separately
+├── hoopsql                       # Launcher script (Linux/Mac)
+└── docs/                         # Documentation
 ```
 
 ### 6. Expected Output
 ```
-Game Results
-============
-🏀 2016-04-13 | Kobe Bryant (Lakers vs Jazz) | W | 60.0 pts, 4.0 reb, 4.0 ast
-🏀 2009-02-02 | Kobe Bryant (Lakers vs Knicks) | W | 61.0 pts, 7.0 reb, 1.0 ast
-🏀 2008-03-28 | Kobe Bryant (Lakers vs Grizzlies) | L | 53.0 pts, 10.0 reb, 8.0 ast
+Results:
+========
+(26 games)
+
+1. 2016-04-13 22:30:00 - Kobe Bryant (Lakers vs Jazz) - W
+   Stats: 60 pts, 4 reb, 4 ast
+
+2. 2009-02-02 19:30:00 - Kobe Bryant (Lakers vs Knicks) - W
+   Stats: 61 pts, 0 reb, 3 ast
+
+3. 2008-03-28 22:30:00 - Kobe Bryant (Lakers vs Grizzlies) - L
+   Stats: 53 pts, 10 reb, 1 ast
 ...
 ```
 
@@ -99,12 +107,12 @@ Game Results
 
 When creating a distribution package:
 
-1. ✅ Build fat JAR: `mvn clean package` 
-2. ✅ Include `target/hoopsql-0.1.0-SNAPSHOT.jar` (14MB with dependencies)
-3. ✅ Include `SQLite/hoopsql.db` (76MB database)
-4. ✅ Include this distribution guide
-5. ✅ Test on clean system without Maven/source
-6. ✅ Verify both Windows PowerShell and Linux/Mac work
-7. ✅ Check interactive mode and file execution
+1. Build fat JAR: `mvn clean package` 
+2. Include `target/hoopsql-1.0.jar` (14MB with dependencies)
+3. Host `SQLite/hoopsql.db` (76MB database) separately on Google Drive
+4. Include this distribution guide with download links
+5. Test on clean system without Maven/source
+6. Verify both Windows PowerShell and Linux/Mac work
+7. Check interactive mode and file execution
 
-Total distribution size: ~90MB (14MB + 76MB)
+Repository size: ~14MB (JAR only, database downloaded separately)

@@ -25,28 +25,31 @@ This is the working specification for HoopsQL, a domain-specific query language 
 - If needed, download from: [Oracle JDK](https://www.oracle.com/java/technologies/downloads/) or [OpenJDK](https://openjdk.org/)
 
 ### Download Distribution Package
-1. Download the HoopsQL distribution containing:
-   - `hoopsql-0.1.0-SNAPSHOT.jar` (14MB standalone executable)
-   - `SQLite/hoopsql.db` (76MB NBA statistics database)
-   - Platform-specific launcher scripts (optional)
+1. Clone the repository: `git clone https://github.com/DavidRBelanger/hoopsql.git`
+2. Download the database: [hoopsql.db](https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT)
+3. Place database at: `SQLite/hoopsql.db`
+
+The distribution contains:
+   - `hoopsql-1.0.jar` (14MB standalone executable)
+   - `SQLite/hoopsql.db` (76MB NBA statistics database - download separately)
+   - Platform-specific launcher scripts
 
 ### Platform-Specific Setup
 
 #### Windows (PowerShell)
 ```powershell
-# 1. Create HoopsQL directory
-mkdir C:\HoopsQL
-cd C:\HoopsQL
+# 1. Clone and setup
+git clone https://github.com/DavidRBelanger/hoopsql.git
+cd hoopsql
 
-# 2. Place downloaded files:
-#    - hoopsql-0.1.0-SNAPSHOT.jar
-#    - SQLite\hoopsql.db
+# 2. Download database
+Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT" -OutFile "SQLite\hoopsql.db"
 
 # 3. Test installation
-java -jar hoopsql-0.1.0-SNAPSHOT.jar "Player p = `"Kobe Bryant`" get games where p.points >= 40"
+java -jar hoopsql-1.0.jar "Player p = `"Kobe Bryant`" get games where p.points >= 40"
 
 # 4. Create convenient alias (optional - add to PowerShell profile)
-function hoopsql { java -jar "C:\HoopsQL\hoopsql-0.1.0-SNAPSHOT.jar" $args }
+function hoopsql { java -jar "$PWD\hoopsql-1.0.jar" $args }
 
 # 5. Usage examples:
 hoopsql  # Interactive mode
@@ -55,25 +58,21 @@ hoopsql "Player p = `"Stephen Curry`" get games where p.points >= 30"
 
 #### Linux/macOS (Bash/Zsh)
 ```bash
-# 1. Create HoopsQL directory
-mkdir ~/HoopsQL
-cd ~/HoopsQL
+# 1. Clone and setup
+git clone https://github.com/DavidRBelanger/hoopsql.git
+cd hoopsql
 
-# 2. Place downloaded files:
-#    - hoopsql-0.1.0-SNAPSHOT.jar  
-#    - SQLite/hoopsql.db
+# 2. Download database
+wget -O SQLite/hoopsql.db "https://drive.google.com/uc?export=download&id=1fjq-9XWXE1uUFCQr0eRXkaTzS8HpbuaT"
 
 # 3. Test installation
-java -jar hoopsql-0.1.0-SNAPSHOT.jar "Player p = \"Kobe Bryant\" get games where p.points >= 40"
-
-# 4. Create launcher script (optional)
-cat > hoopsql << 'EOF'
-#!/bin/bash
-java -jar "$HOME/HoopsQL/hoopsql-0.1.0-SNAPSHOT.jar" "$@"
-EOF
-
 chmod +x hoopsql
-sudo mv hoopsql /usr/local/bin/  # or add ~/HoopsQL to PATH
+./hoopsql "Player p = \"Kobe Bryant\" get games where p.points >= 40"
+
+# 4. Add to PATH (optional)
+echo 'export PATH="$(pwd):$PATH"' >> ~/.bashrc && source ~/.bashrc
+# OR
+sudo ln -s $(pwd)/hoopsql /usr/local/bin/hoopsql
 
 # 5. Usage examples:
 hoopsql  # Interactive mode
@@ -85,13 +84,13 @@ hoopsql "Player p = \"Stephen Curry\" get games where p.points >= 30"
 #### Direct Java Execution
 ```bash
 # Interactive shell mode
-java -jar hoopsql-0.1.0-SNAPSHOT.jar
+java -jar hoopsql-1.0.jar
 
 # Run a single query  
-java -jar hoopsql-0.1.0-SNAPSHOT.jar "Player p = \"Kobe Bryant\" get games where p.points >= 40"
+java -jar hoopsql-1.0.jar "Player p = \"Kobe Bryant\" get games where p.points >= 40"
 
 # Execute from file
-java -jar hoopsql-0.1.0-SNAPSHOT.jar my_query.hpsql
+java -jar hoopsql-1.0.jar my_query.hpsql
 ```
 
 #### With Launcher Script (if installed)
